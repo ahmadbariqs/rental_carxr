@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Admin Content</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        <link rel="stylesheet" href="resources/css/admin.css"/>
+      
+        <style>
+             *{
+                font-family: 'Chakra Petch', sans-serif;
+                font-family: 'Prompt', sans-serif;
+                margin: 0;
+                padding: 0;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                text-decoration: none;
+                text-transform: capitalize;
+                transition: .2s linear;
+            }
+
+            html{
+                font-size: 80%;
+                overflow-x: hidden;
+                scroll-behavior: smooth;
+                scroll-padding-top: 40px;
+                background: #FFFFFF;
+            }
+            
+            .admin{
+                text-decoration: none;
+                padding: 100px;
+                width: 100%;
+                padding: 100px;
+                align-items: center;
+            }
+
+            .admin .box-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+                gap: 15px;
+              }
+
+              .admin .box-container .box {
+                background: #D8D9CF;
+                padding: 30px;
+                text-align: center;
+                border-radius: 20px/50px;
+              }
+
+              .admin .box-container .box:hover {
+                border-radius: 10px/25px;
+              }
+
+              .admin .box-container .box i {
+                height: 65px;
+                width: 65px;
+                line-height:65px;
+                font-size: 30px;
+                color: #fff;
+                background: #444444;
+                border-radius: 50%;
+                margin-bottom: 5px;
+              }
+
+              .admin .box-container .box h3 {
+                font-size: 22px;
+                color: #3C2C3E;
+                padding: 10px;
+              }
+              .admin .box-container .box .button{
+                display: inline-block;
+                margin-top: 10px;
+                padding: 8px 16px;
+                border-radius: 10px;
+                cursor: pointer;
+                background: #212121;
+                color: #FFFFFF;
+                font-size: 15px;
+                overflow: hidden;
+                position: relative;
+              }
+
+               .admin .box-container .box .button:hover{
+                color: #212121;
+                background: #EEEEEE;
+                text-decoration: none;
+              }
+              
+                .footer {
+                position: relative;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                background-color: #E8E8E8;
+              }
+
+              .footer .credit {
+                text-align: center;
+                color: #2228318;
+                font-size: 18px;
+              }
+
+              .footer .credit span {
+                color: #92817A;
+                opacity: 0.6;
+              }
+        </style>
+    </h:head>
+    <h:body>
+        <header class="header">
+            <a href="utama.xhtml" class="logo">CarentalX</a>
+
+            <nav class="navbar">
+                <a href="utama.xhtml">Logout</a>
+            </nav> 
+        </header>
+        
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                <ui:include src="adminhome.xhtml"/>
+            </ui:insert>
+        </div>
+        
+         <div id="bottom">
+            <ui:insert name="bottom">
+                <ui:include src="footer.xhtml"/>
+            </ui:insert>
+        </div>
+        
+    </h:body>
+</html>
+

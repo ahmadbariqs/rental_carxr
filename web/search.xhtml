@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui">  
+  
+<h:head>  
+    <link rel="stylesheet" href="resources/css/admin.css"/>
+    <style>
+          
+        .tble1{
+            font-family: sans-serif;
+            color: #586B8F;
+            border-collapse: collapse;
+            width: 100%;
+            border: 8px double;
+            border-color: #586B8F;
+            background-color: #92817A;   
+        }
+        .colum1{
+            background-color: #D8D9CF;
+        }
+   </style>
+</h:head>  
+<h:body>
+    <header class="header">
+        <a href="utama.xhtml" class="logo">CarentalX</a>
+
+        <nav class="navbar">
+            <a href="utama.xhtml">Logout</a>
+        </nav> 
+    </header>
+    
+    <section class="list">
+        <h:form id="form">  
+  
+            <p:growl id="messages" showDetail="true" />  
+
+            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">  
+                <p:outputLabel value="Please Select Record Number:" /><br/><br/>   
+                <p:selectOneMenu value="#{userBean.user.recordNo}" editable="true" 
+                                 label="Please Select Record Number:" filter="true" id="ulist2">  
+                    <f:selectItem itemLabel="Select One" itemValue="" />  
+                    <f:selectItems value="#{userBean.users}" var="user" itemLabel="#{user.recordNo}" itemValue="#{user}"/>  
+                  </p:selectOneMenu>  
+            </h:panelGrid> 
+
+            <p:commandButton value="Search" update=":form:userTable" type="Submit" action="#{userBean.searchbyRecordno()}"/>
+            <p:commandButton action="booklist?faces-redirect=true" value="Back"/>  
+            <br/>  
+            <p:spacer> </p:spacer>  
+
+            <p:dataTable var="user" id="userTable" editable="true" value="#{userBean.searchByRecordNoList}">  
+                <f:facet name="header">Search Customer Booking Information</f:facet>  
+                <p:ajax event="rowEdit" listener="#{userBean.onRowEdit}" update=":form:messages" />  
+                <p:ajax event="rowEditCancel" listener="#{userBean.onCancel}" update=":form:messages" />  
+
+                <p:column headerText="RecordNo" class="colum1">  
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{user.recordNo}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText id="modelInput" value="#{user.recordNo}" style="width:100%" />  
+                        </f:facet>  
+                    </p:cellEditor>  
+                </p:column>  
+
+                <p:column headerText="Name" class="colum1">  
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{user.name}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{user.name}" style="width:100%" />  
+                        </f:facet>  
+                    </p:cellEditor>  
+                </p:column>  
+
+                <p:column headerText="Address" class="colum1">  
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{user.address}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{user.address}" style="width:100%" />  
+                        </f:facet>  
+                    </p:cellEditor>  
+                </p:column> 
+                
+                <p:column headerText="Date of Booking" class="colum1">  
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{user.dob}">  
+                                <f:convertDateTime type="date" pattern="dd-MMM-yyyy" />  
+                            </h:outputText>  
+                        </f:facet>  
+
+                        <f:facet name="input">  
+                            <p:calendar id="dob" value="#{user.dob}" style="width:100%" label="DatePosted:" required="true" 
+                                pattern="dd/MM/yyyy" effect="slideDown" requiredMessage="Please Enter Date of Book!" 
+                                navigator="true" showButtonPanel="true" yearRange="c-60:c+60" />  
+                        </f:facet>  
+                    </p:cellEditor>  
+                </p:column> 
+                
+                <p:column headerText="Car" width="100" class="colum1">  
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{user.car}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:selectOneMenu value="#{user.car}" id="ulist11">  
+                                <f:selectItem itemLabel="Select One" itemValue="" />  
+                            <f:selectItem itemLabel="MercedeS Benz A Class" itemValue="MercedeS Benz A Class" />  
+                            <f:selectItem itemLabel="Mercedes Benz Cabriolet" itemValue="Mercedes Benz Cabriolet" />
+                            <f:selectItem itemLabel="Mercedes Benz CLA" itemValue="Mercedes Benz CLA" />  
+                            <f:selectItem itemLabel="Mercedes Benz AMG Coupe" itemValue="Mercedes Benz AMG Coupe" />
+                            <f:selectItem itemLabel="Mercede Benz GLE53" itemValue="Mercede Benz GLE53" />  
+                            <f:selectItem itemLabel="Mercede Benz G Class" itemValue="Mercede Benz G Class" /> 
+                            </p:selectOneMenu>  
+                        </f:facet>  
+                    </p:cellEditor>  
+                </p:column>  
+                
+                <p:column headerText="Email" class="colum1">  
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{user.email}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{user.email}" style="width:100%" />  
+                        </f:facet>  
+                    </p:cellEditor>  
+                </p:column>  
+                
+                <p:column headerText="Edit" style="width:100px">  
+                    <p:rowEditor  />  
+                </p:column>  
+
+            </p:dataTable>  
+            
+        </h:form>  
+         
+    </section>
+    
+    <div id="bottom">
+        <ui:insert name="bottom">
+            <ui:include src="footer.xhtml"/>
+        </ui:insert>
+    </div>
+   
+</h:body>  
+  
+</html>  

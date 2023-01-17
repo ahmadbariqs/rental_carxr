@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Content Page</title>
+        <link rel="stylesheet" href="resources/css/idx.css"/>
+    </h:head>
+    <h:body>
+        <header class="header">
+            <a href="utama.xhtml" class="logo">CarentalX</a>
+
+            <nav class="navbar">
+                <a href="utama.xhtml">Home</a>
+                <a href="utama.xhtml">About</a>
+                <a href="content_cars.xhtml">Cars</a>
+                <a href="book_order.xhtml">Book Now</a>
+               
+            </nav> 
+        </header>
+        
+        <section id="cars" class="cars">
+            <div class="content">
+                <h1 class="heading"> We Have Severals <span> Types of Car </span> </h1>
+            
+                <div class="box-container">
+                    <h:form class="box">
+                        <div class="image">
+                            <img src="resources/images/22.png"/>
+                        </div>
+                        <div class="content">
+                            <h3>MercedeS Benz A Class</h3>
+                            <h4>$1000</h4>  
+                            <h:commandButton value="Book Now" class="button" action="book_order.xhtml"></h:commandButton>
+                        </div>
+                    </h:form>
+                    
+                    <h:form class="box">
+                        <div class="image">
+                            <img src="resources/images/23.png"/>
+                        </div>
+                        <div class="content">
+                            <h3>Mercedes Benz Cabriolet</h3>
+                            <h4>$2500</h4>
+                           <h:commandButton value="Book Now" class="button" action="book_order.xhtml"></h:commandButton>
+                        </div>
+                    </h:form>
+                    
+                    <h:form class="box">
+                        <div class="image">
+                            <img src="resources/images/24.png"/>
+                        </div>
+                        <div class="content">
+                            <h3>Mercedes Benz CLA</h3>
+                            <h4>$1000</h4>
+                            <h:commandButton value="Book Now" class="button" action="book_order.xhtml"></h:commandButton>
+                        </div>
+                    </h:form>
+
+                    
+                    <h:form class="box">
+                        <div class="image">
+                            <img src="resources/images/25.png"/>
+                        </div>
+                        <div class="content">
+                            <h3>Mercedes Benz AMG Coupe</h3>
+                            <h4>$3000</h4>
+                           <h:commandButton value="Book Now" class="button" action="book_order.xhtml"></h:commandButton>
+                        </div>
+                    </h:form>
+                   
+                    <h:form class="box">
+                        <div class="image">
+                            <img src="resources/images/26.png"/>
+                        </div>
+                        <div class="content">
+                            <h3>Mercede Benz GLE53</h3>
+                            <h4>$1250</h4>
+                           <h:commandButton value="Book Now" class="button" action="book_order.xhtml"></h:commandButton>
+                        </div>
+                    </h:form>
+                    
+                    <h:form class="box">
+                        <div class="image">
+                            <img src="resources/images/27.png"/>
+                        </div>
+                        <div class="content">
+                            <h3>Mercede Benz G Class</h3>
+                            <h4>$1750</h4>
+                           <h:commandButton value="Book Now" class="button" action="book_order.xhtml"></h:commandButton>
+                        </div>
+                    </h:form>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <ui:include src="footer.xhtml"/>
+            </ui:insert>
+        </div>
+        
+    </h:body>
+</html>
+

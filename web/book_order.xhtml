@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <title>Booking Order</title>
+        <link rel="stylesheet" href="resources/css/idx.css"/>
+
+        <style>
+            *{
+                font-family: 'Prompt', sans-serif; 
+            }
+            body{
+                background-color: #F7F7F7;
+                width: 100%;
+            }
+            .book {
+                padding: 40px;
+                width: 100%;
+                min-height: 100vh;
+                text-transform: none;
+            }
+            .input_text[type=text],input[type=password],calender,selectOneMenu{
+               width: 400%;
+               padding: 18px 18px;
+               margin: 5px 0;
+               display: inline-block;
+               border: 1px solid #ccc;
+            }
+            .button_log{
+                display: inline-block;
+                margin-top: 10px;
+                padding: 8px 16px;
+                border-radius: 10px;
+                cursor: pointer;
+                background: #212121;
+                color: #FFFFFF;
+                font-size: 15px;
+                overflow: hidden;
+                position: relative;
+            }
+            .button_log:hover{
+                color: #212121;
+                background: #EEEEEE;
+                text-decoration: none;
+            }
+            .book .model-content{
+                background-color: #FFFFFF;
+                margin: 5% auto 15% auto;
+                border: 1px solid #888;
+                width: 25%;
+                text-align: center; 
+                width: 75%;
+                text-transform: none;
+            }
+            .book.model-content h2{
+               font-size: 20px;
+               background-color: #5F9DF7;
+            }
+            .book .model-content label{
+                font-size: 18px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        
+        <header class="header">
+            <a href="utama.xhtml" class="logo">CarentalX</a>
+
+            <nav class="navbar">
+                <a href="utama.xhtml">Home</a>
+                <a href="utama.xhtml">About</a>
+                <a href="content_cars.xhtml">Cars</a>
+                <a href="book_order.xhtml">Book Now</a>
+               
+            </nav> 
+        </header>
+        
+        <section id="book" class="book">
+            
+             <h:form class="model-content">  
+                <h1 class="heading"> Details regarding <span> order </span></h1><br/><br/>
+                
+                <label>Full Name</label><br/>  
+                    <p:inputText a:placeholder="Enter Your Name" value="#{userBean.newuser.name}"/><br/><br/>
+                 
+                <label>Email</label><br/>
+                    <p:inputText value="#{userBean.newuser.email}" a:placeholder="john@example.com"/><br/><br/>
+                    
+                <label>Address</label><br/>
+                    <p:inputText a:placeholder="Enter Your Address" value="#{userBean.newuser.address}" /><br/><br/>
+                 
+               
+                <label>Choose The Cars</label><br/> 
+                    <p:selectOneMenu label="Cars" value="#{userBean.newuser.car}" id="ulist2">  
+                        <f:selectItem itemLabel="Select One" itemValue="" />  
+                        <f:selectItem itemLabel="MercedeS Benz A Class" itemValue="MercedeS Benz A Class" />  
+                        <f:selectItem itemLabel="Mercedes Benz Cabriolet" itemValue="Mercedes Benz Cabriolet" />
+                        <f:selectItem itemLabel="Mercedes Benz CLA" itemValue="Mercedes Benz CLA" />  
+                        <f:selectItem itemLabel="Mercedes Benz AMG Coupe" itemValue="Mercedes Benz AMG Coupe" />
+                        <f:selectItem itemLabel="Mercede Benz GLE53" itemValue="Mercede Benz GLE53" />  
+                        <f:selectItem itemLabel="Mercede Benz G Class" itemValue="Mercede Benz G Class" />
+                    </p:selectOneMenu><br/> <br/>
+             
+                    
+                <label>Booking Date</label><br/>  
+                    <p:calendar id="dop" value="#{userBean.newuser.dob}" label="DatePosted:" required="true" 
+                                pattern="dd/MMM/yyyy" effect="slideDown" requiredMessage="Please Enter Date of Posting!" 
+                                navigator="true" showButtonPanel="true" yearRange="c-60:c+60"/><br/><br/>
+
+                <h:commandButton value="ADD" class="button_log" action="#{userBean.addUser()}"/><br/><br/>
+            </h:form>  
+        </section>
+        
+        <div id="bottom">
+            <ui:insert name="top">
+                <ui:include src="footer.xhtml"/>
+            </ui:insert>
+        </div>
+        
+    </h:body>
+    
+    <script src="resources/js/script.js"></script>
+     
+</html>
+

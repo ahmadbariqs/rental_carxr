@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Admin Content</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        
+        <style>
+
+            *{
+                font-family: 'Chakra Petch', sans-serif;
+                font-family: 'Prompt', sans-serif;
+                margin: 0;
+                padding: 0;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                text-decoration: none;
+                text-transform: capitalize;
+                transition: .2s linear;
+            }
+
+            html{
+                font-size: 80%;
+                overflow-x: hidden;
+                scroll-behavior: smooth;
+                scroll-padding-top: 40px;
+                background: #FFFFFF;
+            }
+            
+              .heading {
+                padding-bottom: 2px;
+                text-align: center;
+                font-size: 20px;
+                color: #393E46;
+              }
+
+            .heading span {
+              color: #212121;
+              font-size: 23px;
+            }
+
+            .header{
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:2rem 7%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            box-shadow: #D885A3;
+            position: fixed;
+            top:0; left:0; right:0;
+            z-index: 1000;
+            text-decoration: none;
+          }
+
+          .header .logo{
+              font-size: 25px;
+              color: #4C3A51;
+              font-weight: bolder;
+              text-decoration: none;
+          }
+
+          .header .navbar a{
+              margin: 0 10px;
+              color: #4C3A51;
+              font-size: 15px;
+              text-decoration: none;
+          }
+
+          .header .navbar a:hover{
+              text-decoration: underline;
+          }
+            
+            .admin{
+                text-decoration: none;
+                padding: 100px;
+                width: 100%;
+                padding: 100px;
+                align-items: center;
+            }
+
+            .admin .box-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+                gap: 15px;
+              }
+
+              .admin .box-container .box {
+                background: #D8D9CF;
+                padding: 30px;
+                text-align: center;
+                border-radius: 20px/50px;
+              }
+
+              .admin .box-container .box:hover {
+                border-radius: 10px/25px;
+              }
+
+              .admin .box-container .box i {
+                height: 65px;
+                width: 65px;
+                line-height:65px;
+                font-size: 30px;
+                color: #fff;
+                background: #444444;
+                border-radius: 50%;
+                margin-bottom: 5px;
+              }
+
+              .admin .box-container .box h3 {
+                font-size: 22px;
+                color: #3C2C3E;
+                padding: 10px;
+              }
+              .admin .box-container .box .button{
+                display: inline-block;
+                margin-top: 10px;
+                padding: 8px 16px;
+                border-radius: 10px;
+                cursor: pointer;
+                background: #212121;
+                color: #FFFFFF;
+                font-size: 15px;
+                overflow: hidden;
+                position: relative;
+              }
+
+               .admin .box-container .box .button:hover{
+                color: #212121;
+                background: #EEEEEE;
+                text-decoration: none;
+              }
+              
+                .footer {
+                position: relative;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                background-color: #E8E8E8;
+              }
+
+              .footer .credit {
+                text-align: center;
+                color: #2228318;
+                font-size: 18px;
+              }
+
+              .footer .credit span {
+                color: #92817A;
+                opacity: 0.6;
+              }
+        </style>
+    </h:head>
+    <h:body>
+        <header class="header">
+            <a href="utama.xhtml" class="logo">CarentalX</a>
+
+            <nav class="navbar">
+                <a href="utama.xhtml">Logout</a>
+            </nav> 
+        </header>
+        
+        <section class="admin" id="admin">
+
+            <div class="box-container">
+
+                <h:form class="box">
+                    <i class="fas fa-car"></i>
+                    <h3>Order</h3>
+                    <h:commandButton value="Click Here" class="button" action="booklist.xhtml"/>
+                </h:form>
+                
+            </div>
+        </section>        
+        
+    </h:body>
+</html>
+
